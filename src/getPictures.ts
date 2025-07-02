@@ -11,7 +11,6 @@ const getPictures = (limit: number, width: number, height: number) => {
     const pictureUrl = `https://picsum.photos/${width}/${height}?random=${i}`;
     pictureArr.push({ id: i, url: pictureUrl, width: width, height: height });
   }
-  console.log(pictureArr);
   return pictureArr;
 };
 

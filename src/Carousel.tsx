@@ -1,5 +1,4 @@
 import { useEffect, useState, useRef } from 'react';
-import Card from './Components/Card';
 import {
   useHeigthContext,
   usePictureContext,
