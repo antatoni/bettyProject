@@ -16,6 +16,7 @@ const Carousel = () => {
   const [picturesToShow, setPicturesToShow] = useState(5);
   const carouselRef = useRef<HTMLDivElement>(null);
   const lastScrollTime = useRef<number>(0);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const SCROLL_AMOUTH = 1;
   const SCROLL_THROTTLE = 250;
@@ -24,6 +25,7 @@ const Carousel = () => {
   useEffect(() => {
     const updatePicturesToShow = () => {
       const screenWidth = window.innerWidth;
+      setWindowWidth(screenWidth);
       if (screenWidth < 640) {
         setPicturesToShow(1);
       } else if (screenWidth < 768) {
@@ -124,7 +126,7 @@ const Carousel = () => {
   const getResponsiveImageSize = () => {
     const containerPadding = 24;
     const marginSpace = 120;
-    const availableWidth = window.innerWidth - containerPadding - marginSpace;
+    const availableWidth = windowWidth - containerPadding - marginSpace;
 
     const totalGaps = (picturesToShow - 1) * GAP_SIZE;
     const maxImageWidth = (availableWidth - totalGaps) / picturesToShow;
